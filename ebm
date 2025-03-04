@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100vh;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <img src="1.jpg" class="slide" style="opacity: 1;">
+    <img src="2.jpg" class="slide">
+    <img src="3.jpg" class="slide">
+    <img src="4.jpg" class="slide">
+    <img src="5.jpg" class="slide">
+    <img src="6.jpg" class="slide">
+    <img src="7.jpg" class="slide">
+    <img src="8.jpg" class="slide">
+
+    <script>
+        let images = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        
+        function showNextImage() {
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.opacity = 1;
+        }
+        
+        setInterval(showNextImage, 5000);
+    </script>
+</body>
+</html>
